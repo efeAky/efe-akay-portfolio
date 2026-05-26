@@ -1,0 +1,47 @@
+import type { Project } from '@/lib/types'
+
+export const projects: Project[] = [
+  {
+    slug: 'work-tracker',
+    title: 'WorkTracker',
+    image: '/thumbnails/work-tracker-thumbnail.png',
+    isLive: true,
+    description: 'WorkTracker is a role-based team management app where supervisors can create and assign tasks to workers, monitor progress, and manage their team. Workers can view their assigned tasks, update statuses, and track their workload. Built with a separate frontend and backend, the app supports three roles — admin, supervisor, and worker — each with their own protected dashboard and features.',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'JWT', 'REST API'],
+    liveUrl: 'https://work-tracker-frontend-green.vercel.app',
+    githubUrl: 'https://github.com/efeAky/work-tracker-frontend',
+    images: [
+      { src: '/work-tracker-pictures/WorkTracker1.png', caption: 'Landing Page — Introduction to WorkTracker' },
+      { src: '/work-tracker-pictures/WorkTracker2.png', caption: 'Login Page — Secure JWT authentication' },
+      { src: '/work-tracker-pictures/WorkTracker3.png', caption: 'Supervisor Dashboard — Overview of tasks and team activity' },
+      { src: '/work-tracker-pictures/WorkTracker4.png', caption: 'Task Directory — Full list of all tasks and their statuses' },
+      { src: '/work-tracker-pictures/WorkTracker5.png', caption: 'Employees Directory — Manage and view all team members' },
+      { src: '/work-tracker-pictures/WorkTracker6.png', caption: 'Assign Task Panel — Assign tasks to specific employees' },
+      { src: '/work-tracker-pictures/WorkTracker7.png', caption: 'Worker Dashboard — Personal task overview for workers' },
+      { src: '/work-tracker-pictures/WorkTracker8.png', caption: 'Worker Tasks Page — Full list of assigned tasks' },
+      { src: '/work-tracker-pictures/WorkTracker9.png', caption: 'Task Detail View — In-depth look at a specific task' },
+    ],
+  },
+  {
+    slug: 'exercise-tracker',
+    title: 'ExerciseTracker',
+    image: '/thumbnails/exercise-tracker-thumbnail.png',
+    isLive: true,
+    description: 'ExerciseTracker is a personal fitness app where users can create custom workout routines, log their progress, and track improvements over time. Set goals for each exercise, record actual reps per set, and view detailed summaries of your workout history — all in one place.',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Upstash Redis', 'Tailwind CSS', 'Server Actions'],
+    liveUrl: 'https://exercise-tracker-blue.vercel.app',
+    githubUrl: 'https://github.com/efeAky/exercise-tracker',
+    images: [
+      { src: '/exercise-tracker-pictures/ExerciseTracker1.png', caption: 'Landing Page — Welcome screen with sign up and login' },
+      { src: '/exercise-tracker-pictures/ExerciseTracker2.png', caption: 'Sign Up — Create a new account' },
+      { src: '/exercise-tracker-pictures/ExerciseTracker3.png', caption: 'Log In — Log in with demo account option' },
+      { src: '/exercise-tracker-pictures/ExerciseTracker4.png', caption: 'Dashboard — Last workout summary with date and goal progress' },
+      { src: '/exercise-tracker-pictures/ExerciseTracker5.png', caption: 'Routines Page — Manage your workout routines' },
+      { src: '/exercise-tracker-pictures/ExerciseTracker6.png', caption: 'Create New Routine — Build a custom routine with exercises, sets and reps' },
+      { src: '/exercise-tracker-pictures/ExerciseTracker7.png', caption: 'Enter Progress — Select a routine to log your workout' },
+      { src: '/exercise-tracker-pictures/ExerciseTracker8.png', caption: 'Enter Progress — Log reps per set for a specific routine' },
+      { src: '/exercise-tracker-pictures/ExerciseTracker9.png', caption: 'Workout Summary — Select a routine to view the progress' },
+      { src: '/exercise-tracker-pictures/ExerciseTracker10.png', caption: 'Detailed Summary — In-depth results for a specific routine' },
+    ],
+  },
+]
