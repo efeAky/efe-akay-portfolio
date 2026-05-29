@@ -32,7 +32,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
       className="flex flex-col xl:flex-row gap-stack-lg items-start"
     >
       {/* Left Column */}
-      <aside className="w-full xl:w-[320px] 2xl:w-[380px] space-y-stack-md shrink-0 -mt-10">
+      <aside className="w-full xl:w-[320px] 2xl:w-[380px] space-y-stack-md shrink-0 xl:-mt-10">
         <button
           onClick={() => router.back()}
           className="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors text-label-md"
@@ -53,7 +53,6 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
             <h2 className="text-label-md text-on-surface-variant uppercase tracking-widest">
               Technologies
             </h2>
-
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
                 <span
@@ -93,16 +92,29 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
       </aside>
 
       {/* Right Column - Image Slider */}
-      <section className="grow space-y-4 -mt-8">
+      <section className="w-full xl:flex-grow space-y-4 xl:-mt-8">
         {images.length > 0 && (
           <>
-            <div className="relative rounded-xl overflow-hidden aspect-video shadow-[0_0_30px_rgba(192,193,255,0.2)] border border-primary/20">
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-[0_0_30px_rgba(192,193,255,0.2)] border border-primary/20">
+              {/* Blurred background */}
+              <Image
+                src={images[currentImage].src}
+                alt=""
+                fill
+                quality={20}
+                sizes="(max-width: 768px) 100vw, 800px"
+                className="object-cover scale-110 blur-xl brightness-50"
+                aria-hidden
+              />
+
+              {/* Main image */}
               <Image
                 src={images[currentImage].src}
                 alt={images[currentImage].caption}
                 fill
                 quality={100}
-                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 800px"
+                className="object-contain relative"
               />
             </div>
 
