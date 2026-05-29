@@ -1,34 +1,34 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { useRouter } from 'next/navigation'
-import Image from 'next/image'
-import type { Project } from '@/lib/types'
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import type { Project } from "@/lib/types";
 
 interface ProjectDetailProps {
-  project: Project
+  project: Project;
 }
 
 export default function ProjectDetail({ project }: ProjectDetailProps) {
-  const [currentImage, setCurrentImage] = useState(0)
-  const router = useRouter()
+  const [currentImage, setCurrentImage] = useState(0);
+  const router = useRouter();
 
-  const images = project.images || []
+  const images = project.images || [];
 
   function next() {
-    setCurrentImage((prev) => (prev + 1) % images.length)
+    setCurrentImage((prev) => (prev + 1) % images.length);
   }
 
   function prev() {
-    setCurrentImage((prev) => (prev - 1 + images.length) % images.length)
+    setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
   }
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className="flex flex-col xl:flex-row gap-stack-lg items-start"
     >
       {/* Left Column */}
@@ -40,9 +40,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           ← Back
         </button>
 
-        <h1 className="text-4xl font-bold text-on-surface">
-          {project.title}
-        </h1>
+        <h1 className="text-4xl font-bold text-on-surface">{project.title}</h1>
 
         <p className="text-body-lg text-on-surface-variant">
           {project.description}
@@ -67,7 +65,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
         )}
 
         <div className="flex gap-4">
-          {project.liveUrl && project.liveUrl !== '#' && (
+          {project.liveUrl && project.liveUrl !== "#" && (
             <a
               href={project.liveUrl}
               target="_blank"
@@ -78,7 +76,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
             </a>
           )}
 
-          {project.githubUrl && project.githubUrl !== '#' && (
+          {project.githubUrl && project.githubUrl !== "#" && (
             <a
               href={project.githubUrl}
               target="_blank"
@@ -150,8 +148,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                   onClick={() => setCurrentImage(index)}
                   className={`w-2 h-2 rounded-full transition-all ${
                     index === currentImage
-                      ? 'bg-primary w-4'
-                      : 'bg-outline-variant'
+                      ? "bg-primary w-4"
+                      : "bg-outline-variant"
                   }`}
                 />
               ))}
@@ -160,5 +158,5 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
         )}
       </section>
     </motion.div>
-  )
+  );
 }
