@@ -1,8 +1,9 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import Link from 'next/link'
 import type { Project } from '@/lib/types'
 
 interface ProjectDetailProps {
@@ -11,6 +12,7 @@ interface ProjectDetailProps {
 
 export default function ProjectDetail({ project }: ProjectDetailProps) {
   const [currentImage, setCurrentImage] = useState(0)
+  const router = useRouter()
 
   const images = project.images || []
 
@@ -23,15 +25,20 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
   }
 
   return (
-    <div className="flex flex-col xl:flex-row gap-stack-lg items-start">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="flex flex-col xl:flex-row gap-stack-lg items-start"
+    >
       {/* Left Column */}
       <aside className="w-full xl:w-[320px] 2xl:w-[380px] space-y-stack-md shrink-0 -mt-10">
-        <Link
-          href="/"
+        <button
+          onClick={() => router.back()}
           className="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors text-label-md"
         >
           ← Back
-        </Link>
+        </button>
 
         <h1 className="text-4xl font-bold text-on-surface">
           {project.title}
@@ -66,9 +73,9 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-primary text-on-primary font-bold py-3 px-6 rounded-xl text-center transition-all hover:scale-105 active:scale-95"
+              className="flex-1 inline-flex items-center justify-center gap-2 bg-primary text-on-primary font-semibold py-4 px-6 rounded-xl hover:bg-primary/90 transition-all duration-200 text-label-md shadow-lg hover:scale-105 active:scale-95"
             >
-              Live Link
+              Live
             </a>
           )}
 
@@ -77,7 +84,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-surface-container-high text-on-surface font-bold py-3 px-6 rounded-xl text-center border border-outline-variant/30 transition-all hover:scale-105 active:scale-95"
+              className="flex-1 inline-flex items-center justify-center gap-2 bg-primary text-on-primary font-semibold py-4 px-6 rounded-xl hover:bg-primary/90 transition-all duration-200 text-label-md shadow-lg hover:scale-105 active:scale-95"
             >
               GitHub
             </a>
@@ -89,7 +96,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
       <section className="grow space-y-4 -mt-8">
         {images.length > 0 && (
           <>
-            <div className="relative rounded-xl overflow-hidden aspect-video glass-card">
+            <div className="relative rounded-xl overflow-hidden aspect-video shadow-[0_0_30px_rgba(192,193,255,0.2)] border border-primary/20">
               <Image
                 src={images[currentImage].src}
                 alt={images[currentImage].caption}
@@ -140,6 +147,6 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           </>
         )}
       </section>
-    </div>
+    </motion.div>
   )
 }

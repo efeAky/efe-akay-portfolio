@@ -18,7 +18,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             quality={100}
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-surface to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-10" />
           {project.isLive && (
             <span className="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 rounded-full text-label-sm">
               Live Now
