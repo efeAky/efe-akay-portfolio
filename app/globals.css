@@ -113,3 +113,18 @@ html {
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
+
+@media (min-width: 768px) {
+  html {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+
+  #overview,
+  #bio,
+  #projects {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
