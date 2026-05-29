@@ -4,21 +4,22 @@ import { motion } from 'framer-motion'
 
 export default function BioSection() {
   return (
-    <section id="bio" className="h-screen flex items-center justify-center overflow-hidden">
+    <section id="bio" className="min-h-screen flex items-center justify-center py-24 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
         viewport={{ once: true }}
-        className="w-full max-w-5xl mx-auto flex flex-row gap-6 items-stretch"
+        className="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-6"
       >
         {/* Left — About Me */}
-        <div className="flex-grow glass-card rounded-xl p-8 flex flex-col gap-4 hover:shadow-[0_0_30px_rgba(192,193,255,0.15)] transition-all duration-300">
+        <div className="flex-grow glass-card rounded-xl p-6 md:p-8 flex flex-col gap-4 hover:shadow-[0_0_30px_rgba(192,193,255,0.15)] transition-all duration-300">
           <h2 className="text-2xl font-bold text-white">About Me</h2>
-          <p className="text-body-lg text-on-surface-variant">
+          <p className="text-body-md text-on-surface-variant">
             I build secure and scalable applications across the full stack — from{' '}
             <span className="text-primary">Next.js</span> frontends to{' '}
-            <span className="text-primary">Node.js</span> RESTful APIs. I actively use AI tools —{' '}
+            <span className="text-primary">Node.js</span>{' '}
+            <span className="text-primary">RESTful APIs</span>. I actively use AI tools —{' '}
             <span className="text-primary">Claude</span>,{' '}
             <span className="text-primary">ChatGPT</span>,{' '}
             <span className="text-primary">Gemini</span>, and{' '}
@@ -26,7 +27,7 @@ export default function BioSection() {
             process, not just as assistants but as tools that make me faster, sharper, and more
             effective.
           </p>
-          <p className="text-body-lg text-on-surface-variant">
+          <p className="text-body-md text-on-surface-variant">
             My background in object-oriented programming with{' '}
             <span className="text-primary">C++</span> and{' '}
             <span className="text-primary">Python</span> gives me a solid understanding of
@@ -37,7 +38,7 @@ export default function BioSection() {
         </div>
 
         {/* Right — Education + Languages stacked */}
-        <div className="flex flex-col gap-6 w-[280px] shrink-0">
+        <div className="flex flex-col gap-6 w-full md:w-[280px] shrink-0">
 
           {/* Education Card */}
           <div className="glass-card rounded-xl p-6 flex flex-col gap-3 hover:shadow-[0_0_30px_rgba(192,193,255,0.15)] transition-all duration-300">
